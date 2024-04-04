@@ -1,6 +1,8 @@
 import './styles/OutputCV.css'
 
 export default function OutputCV({fullName}) {
+  
+    
 
     return (
         <div className="container">
@@ -28,43 +30,54 @@ export default function OutputCV({fullName}) {
                         </div>
                         <div className="cv-skills">
                             <h4>Skills</h4>
-                            <textarea name="cv-skills" id="cv-skills" cols="30" rows="10" readOnly>gjhdfghskjdf gajsh, gfjhhg , ghdjfghdk, jhfkaja, gsjh gkjsh, gjkshfk</textarea>
+                            <p>gjhdfghskjdf gajsh, gfjhhg , ghdjfghdk, jhfkfadhfk, fhjahfka, ajhsdkhaskjdhaja, gsjh gkjsh, gjkshfk</p>
                         </div>
                     </div>
                     <div className="right-side">
                         <div className="cv-experience">
                             <h4>Work History</h4>
-                            <div>
-                                <div className="from-to">04/23 - 05/24</div>
-                                <div className="exp-contnent">
-                                    <div className="exp-title">Bartender</div>
-                                    <div className="exp-company">The Birchwood, Saint Pete, FL</div>
-                                    <div className="exp-duties">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Urna neque viverra justo nec ultrices dui sapien eget. Maecenas accumsan lacus vel facilisis volutpat est. Nec feugiat nisl pretium fusce.</p>
+                            <ul>
+                                <li>
+                                    <div className="from-to">04/23 - 05/24</div>
+                                    <div className="exp-content">
+                                        <div className="exp-title">Bartender</div>
+                                        <div className="exp-company">The Birchwood, Saint Pete, FL</div>
+                                        <div className="exp-duties">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Urna neque viverra justo nec ultrices dui sapien eget. Maecenas accumsan lacus vel facilisis volutpat est. Nec feugiat nisl pretium fusce.</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div className="from-to">04/23 - 05/24</div>
-                                <div className="exp-contnent">
-                                    <div className="exp-title">Bartender</div>
-                                    <div className="exp-company">The Birchwood, Saint Pete, FL</div>
-                                    <div className="exp-duties">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Urna neque viverra justo nec ultrices dui sapien eget. Maecenas accumsan lacus vel facilisis volutpat est. Nec feugiat nisl pretium fusce.</p>
+                                </li>
+                                <li>
+                                    <div className="from-to">04/23 - 05/24</div>
+                                    <div className="exp-content">
+                                        <div className="exp-title">Bartender</div>
+                                        <div className="exp-company">The Birchwood, Saint Pete, FL</div>
+                                        <div className="exp-duties">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Urna neque viverra justo nec ultrices dui sapien eget. Maecenas accumsan lacus vel facilisis volutpat est. Nec feugiat nisl pretium fusce.</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            
+                                </li>
+                            </ul>
                         </div>
                         <div className="cv-education">
                             <h4>Education</h4>
-                            <div>
-                                <div className="from-to">04/23 - 05/24</div>
-                                <div className="education-content">
-                                    <div className="cv-degree">Full-stack web development</div>
-                                    <div className="cv-school-location">University of Florida, Dunedin, FL</div>
-                                </div>
-                            </div>
+                            <ul className='edu-list'>
+                                <li>
+                                    <div className="from-to">04/23 - 05/24</div>
+                                    <div className="education-content">
+                                        <div className="cv-degree">Full-stack web development</div>
+                                        <div className="cv-school-location">University of Florida, Dunedin, FL</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="from-to">04/23 - 05/24</div>
+                                    <div className="education-content">
+                                        <div className="cv-degree">Full-stack web development</div>
+                                        <div className="cv-school-location">University of Florida, Dunedin, FL</div>
+                                    </div>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                 </main>

@@ -1,3 +1,8 @@
+.left-side,
+.right-side {
+    margin-bottom: 1em;
+}
+
 .output-content {
     margin: 1em auto;
     background-color: white;
@@ -21,4 +26,58 @@
 
 .output-content h4 {
     border-bottom: 1px solid rgb(28, 105, 131);
+}
+
+.cv-personal div {
+    margin: 1em 0;
+}
+
+.cv-personal input {
+    width: 100%;
+
+    outline: none;
+    border: none;
+    font-size: 1em;
+    padding: 0;
+}
+
+.cv-personal label {
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.cv-experience ul,
+.cv-education ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.exp-content div {
+    margin-top: 0.5em;
+}
+
+
+.exp-title {
+    font-weight: 500;
+}
+
+.exp-company {
+    font-style: italic;
+}
+
+.edu-list li {
+    margin-top: 1.125em;
+}
+
+.education-content div {
+    margin-top: 0.2em;
+}
+
+.cv-degree {
+    font-weight: 500;
+}
+
+.cv-school-location {
+    font-style: italic;
 }
