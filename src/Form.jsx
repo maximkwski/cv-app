@@ -85,7 +85,7 @@ export default function Form({ fullName, onChange}) {
                     <textarea name="skills" id="skills" cols="30" rows="5" placeholder='ex: Html, Javascript, CSS...'></textarea>
                 </div>
             </section>
-            <div className="control-panel">
+            <div className="control-panel submit-reset">
                 <button type="reset" className='btn'>reset</button>
                 <button type="submit" className='btn'>submit</button>
             </div>

@@ -1,0 +1,24 @@
+.output-content {
+    margin: 1em auto;
+    background-color: white;
+    box-shadow: 8px 8px 10px rgb(132, 131, 131);
+    padding: 1em;
+}
+
+.output-content header {
+    margin-bottom: 1em;
+}
+
+.output-content h1,
+.output-content h3,
+.output-content h4 {
+    color: rgb(28, 105, 131);
+}
+
+.output-content h3 {
+    font-weight: 300;
+}
+
+.output-content h4 {
+    border-bottom: 1px solid rgb(28, 105, 131);
+}
