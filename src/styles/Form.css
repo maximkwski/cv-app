@@ -65,6 +65,14 @@ form section {
     background-color: #f0ece2;
 }
 
+.btn--add {
+    background-color: rgb(189, 249, 98);
+}
+
+.btn--del {
+    background-color: rgb(252, 80, 80);
+}
+
 .submit-reset {
     display: block;
 }
