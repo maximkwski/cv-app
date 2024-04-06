@@ -14,8 +14,8 @@ export default function Form() {
     console.log(info);
     function handleInputChange(e) {
         const { name, value } = e.target;
-    
-        if (name.startsWith("education")) {
+        console.log( name, value );
+        if (name.startsWith("edu")) {
             const sectionIndex = parseInt(name.match(/\d+/)[0]); // Extract index from input name
             const sectionName = name.replace(/\d+/, ''); // Extract input name without index
             setInfo(prevInfo => {
@@ -131,19 +131,19 @@ const EducationSection = ({ index, handleInputChange }) => {
             <h2>Education</h2>
             <div className="form-row">
                 <label htmlFor={`study${index}`}>Course/Degree/Class</label><br />
-                <input type="text" name={`study${index}`} id={`study${index}`} onChange={handleInputChange} />
+                <input type="text" name={`edu-study${index}`} id={`study${index}`} onChange={handleInputChange} />
             </div>
             <div className="form-row">
                 <label htmlFor={`school${index}`}>School/University</label><br />
-                <input type="text" name={`school${index}`} id={`school${index}`} onChange={handleInputChange} />
+                <input type="text" name={`edu-school${index}`} id={`school${index}`} onChange={handleInputChange} />
             </div>
             <div className="form-row">
                 <label htmlFor={`location${index}`}>Location</label><br />
-                <input type="text" name={`location${index}`} id={`location${index}`} placeholder='ex: Miami, Florida' onChange={handleInputChange} />
+                <input type="text" name={`edu-location${index}`} id={`location${index}`} placeholder='ex: Miami, Florida' onChange={handleInputChange} />
             </div>
             <div className="form-row">
                 <label htmlFor={`grad-year${index}`}>Year of graduation</label><br />
-                <input type="text" name={`grad-year${index}`} id={`grad-year${index}`} onChange={handleInputChange} />
+                <input type="text" name={`edu-grad-year${index}`} id={`grad-year${index}`} onChange={handleInputChange} />
             </div>
             
         </section>
