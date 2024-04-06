@@ -2,13 +2,20 @@ import { useState } from 'react';
 import './styles/Form.css';
 
 export default function Form() {
-    const [info, setInfo] = useState({
-        education: []
-    }) //cv profile info
-    const [educationSections, setEducationSections] = useState([{}]); //edu section
 
-    const handleAddSection = () => {
+    const [info, setInfo] = useState({
+        education: [],
+        experience: [],
+    }) //cv profile info
+
+    const [educationSections, setEducationSections] = useState([{}]); //edu section
+    const [experienceSections, setExperienceSections] = useState ([{}]); //exp section
+
+    const handleAddEducationSection = () => {
         setEducationSections(prevSections => [...prevSections, {}]);
+    };
+    const handleAddExperienceSection = () => {
+        setExperienceSections(prevSections => [...prevSections, {}]);
     };
 
     console.log(info);
@@ -25,6 +32,17 @@ export default function Form() {
                     [sectionName]: value
                 };
                 return { ...prevInfo, education: updatedEducation };
+            });
+        } else if (name.startsWith('exp')) {
+            const sectionIndex = parseInt(name.match(/\d+/)[0]); // Extract index from input name
+            const sectionName = name.replace(/\d+/, ''); // Extract input name without index
+            setInfo(prevInfo => {
+                const updatedExperience = [...prevInfo.experience];
+                updatedExperience[sectionIndex] = {
+                    ...updatedExperience[sectionIndex], 
+                    [sectionName] : value
+                };
+                return { ...prevInfo, experience: updatedExperience };
             });
         } else {
             setInfo(prevInfo => ({
@@ -78,38 +96,20 @@ export default function Form() {
                 <EducationSection key={index} index={index} handleInputChange={handleInputChange} />
             ))}
              <div className="control-panel">
-                <button className='btn btn--add' type='button' onClick={handleAddSection}>Add another</button>
+                <button className='btn btn--add' type='button' 
+                onClick={handleAddEducationSection}>Add another</button>
                 <button className='btn btn--del'type='button'>Delete</button>
             </div>
             
-
-            <section className='experience'>
-                <h2>Work History</h2>
-                <div className="form-row">
-                    <label htmlFor="company">Company name</label><br />
-                    <input type="text" name="company" id="company" />
-                </div>
-                <div className="form-row">
-                    <label htmlFor="job-title">Job title</label><br />
-                    <input type="text" name="job-title" id="job-title" />
-                </div>
-                <div className="form-row">
-                    <label htmlFor="job-desc">Main responsibilities</label><br />
-                    <textarea  name="job-desc" id="job-desc" cols="30" rows="5" />
-                </div>
-                <div className="form-row">
-                    <label htmlFor="job-start">From</label><br />
-                    <input type="text" name="job-start" id="job-start" />
-                </div>
-                <div className="form-row">
-                    <label htmlFor="job-end">To</label><br />
-                    <input type="text" name="job-end" id="job-end" />
-                </div>
-                <div className="control-panel">
-                    <button className='btn btn--add' type='button'>Add another</button>
+            {experienceSections.map((section, index) => (
+                <ExperienceSection key={index} index={index} handleInputChange={handleInputChange} />
+            ))}
+            
+            <div className="control-panel">
+                    <button className='btn btn--add' type='button' 
+                    onClick={handleAddExperienceSection}>Add another</button>
                     <button className='btn btn--del' type='button'>Delete</button>
-                </div>
-            </section>
+            </div>
             <section className='skills'>
                 <h2>Skills</h2>
                 <div className="form-row">
@@ -149,3 +149,36 @@ const EducationSection = ({ index, handleInputChange }) => {
         </section>
     );
 };
+
+const ExperienceSection = ( {index, handleInputChange} ) => {
+    return (
+        <section className='experience'>
+                <h2>Work History</h2>
+                <div className="form-row">
+                    <label htmlFor={`company${index}`}>Company name</label><br />
+                    <input type="text" name={`exp-company${index}`} id={`company${index}`}
+                    onChange={handleInputChange} />
+                </div>
+                <div className="form-row">
+                    <label htmlFor={`job-title${index}`}>Job title</label><br />
+                    <input type="text" name={`exp-job-title${index}`} id={`job-title${index}`} 
+                    onChange={handleInputChange} />
+                </div>
+                <div className="form-row">
+                    <label htmlFor={`job-resp${index}`}>Main responsibilities</label><br />
+                    <textarea  name={`exp-job-resp${index}`} id={`job-resp${index}`} cols="30" rows="5" 
+                    onChange={handleInputChange} />
+                </div>
+                <div className="form-row">
+                    <label htmlFor={`job-start${index}`}>From</label><br />
+                    <input type="text" name={`exp-job-start${index}`} id={`job-start${index}`} 
+                    onChange={handleInputChange} />
+                </div>
+                <div className="form-row">
+                    <label htmlFor={`job-end${index}`}>To</label><br />
+                    <input type="text" name={`exp-job-end${index}`} id={`job-end${index}`} 
+                    onChange={handleInputChange} />
+                </div>
+            </section>
+    )
+}
