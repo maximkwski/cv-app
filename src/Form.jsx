@@ -7,7 +7,7 @@ export default function Form() {
         education: [],
         experience: [],
     }) //cv profile info
-
+    console.log(info);
     const [educationSections, setEducationSections] = useState([{}]); //edu section
     const [experienceSections, setExperienceSections] = useState ([{}]); //exp section
 
@@ -66,6 +66,20 @@ export default function Form() {
             }));
         }
     }
+
+    const handleDeleteEducationSection = () => {
+        console.log('click')
+        if (educationSections.length > 1) {
+            setEducationSections(prevSections => prevSections.slice(0, -1))
+        }
+    }
+
+    const handleDeleteExperienceSection = () => {
+        console.log('click')
+        if (experienceSections.length > 1) {
+            setExperienceSections(prevSections => prevSections.slice(0, -1))
+        }
+    }
     
 
     return (
@@ -113,7 +127,8 @@ export default function Form() {
              <div className="control-panel">
                 <button className='btn btn--add' type='button' 
                 onClick={handleAddEducationSection}>Add another</button>
-                <button className='btn btn--del'type='button'>Delete</button>
+                <button className='btn btn--del'type='button'
+                 onClick={handleDeleteEducationSection}>Delete</button>
             </div>
             
             {experienceSections.map((section, index) => (
@@ -123,7 +138,8 @@ export default function Form() {
             <div className="control-panel">
                     <button className='btn btn--add' type='button' 
                     onClick={handleAddExperienceSection}>Add another</button>
-                    <button className='btn btn--del' type='button'>Delete</button>
+                    <button className='btn btn--del' type='button'
+                       onClick={handleDeleteExperienceSection} >Delete</button>
             </div>
             <section className='skills'>
                 <h2>Skills</h2>
@@ -142,12 +158,11 @@ export default function Form() {
 
 
 const EducationSection = ({ index, handleInputChange, info }) => {
-    // console.log(info)
+
     const educationInfo = info.education[index] || {}; // Get education info for the specific index
     const { 'edu-study' : study, 'edu-school' : school, 
     'edu-location' : location,  'edu-grad-year' : gradYear } = educationInfo; // Destructure education info
-    console.log(school)
-    console.log(educationInfo)
+
     return (
         <section className='education' key={index}>
             <h2>Education</h2>
@@ -191,7 +206,7 @@ const ExperienceSection = ( {index, handleInputChange, info} ) => {
             'exp-job-resp' : jobResp,
             'exp-job-start' : jobStart,
             'exp-job-end' : jobEnd } = experienceInfo;
-    console.log(experienceInfo)
+
 
     return (
         <section className='experience'>
