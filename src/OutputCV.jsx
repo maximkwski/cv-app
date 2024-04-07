@@ -1,6 +1,6 @@
 import './styles/OutputCV.css'
 
-export default function OutputCV() {
+export default function OutputCV({info}) {
   
     
 
@@ -8,8 +8,8 @@ export default function OutputCV() {
         <div className="container">
             <div className="output-content">
                 <header>
-                    <h1></h1>
-                    <h3></h3>
+                    <h1>{info.fullName}</h1>
+                    <h3>{info.title}</h3>
                 </header>
                 <main>
                     <div className="left-side">
@@ -30,7 +30,7 @@ export default function OutputCV() {
                         </div>
                         <div className="cv-skills">
                             <h4>Skills</h4>
-                            <p></p>
+                            <p>{info.skills}</p>
                         </div>
                     </div>
                     <div className="right-side">

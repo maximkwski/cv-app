@@ -1,15 +1,13 @@
 import { useState } from 'react';
+import OutputCV from './OutputCV';
 import './styles/Form.css';
 
-export default function Form() {
+export default function Form({ info, setInfo, onInfoChange, educationSections, experienceSections,
+    setEducationSections, setExperienceSections }) {
 
-    const [info, setInfo] = useState({
-        education: [],
-        experience: [],
-    }) //cv profile info
+    
     console.log(info);
-    const [educationSections, setEducationSections] = useState([{}]); //edu section
-    const [experienceSections, setExperienceSections] = useState ([{}]); //exp section
+
 
     const handleAddEducationSection = () => {
         setEducationSections(prevSections => [...prevSections, {}]);
@@ -18,11 +16,12 @@ export default function Form() {
         setExperienceSections(prevSections => [...prevSections, {}]);
     };
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    // function handleSubmit(e) {
+    //     e.preventDefault();
         
-        console.log('sho')
-      }
+        
+    //     onInfoChange(info);
+    //   }
       
     const handleReset = (e) => {
         e.preventDefault();
@@ -65,6 +64,8 @@ export default function Form() {
                 [name]: value
             }));
         }
+       
+
     }
 
     const handleDeleteEducationSection = () => {
@@ -83,7 +84,7 @@ export default function Form() {
     
 
     return (
-        <form id='cvForm' className='cv-form container' onReset={handleReset} onSubmit={handleSubmit}>
+        <form id='cvForm' className='cv-form container' onReset={handleReset} >
             <section className='personal'>
                 <h2>Personal Info</h2>
                 <div className="form-row">
@@ -150,7 +151,7 @@ export default function Form() {
             </section>
             <div className="control-panel submit-reset">
                 <button type="reset" className='btn btn--del'>reset</button>
-                <button type="submit" className='btn btn--add'>submit</button>
+                {/* <button type="submit" className='btn btn--add'>submit</button> */}
             </div>
       </form>
     )
