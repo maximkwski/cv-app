@@ -18,10 +18,25 @@ export default function Form() {
         setExperienceSections(prevSections => [...prevSections, {}]);
     };
 
-    console.log(info);
+    function handleSubmit(e) {
+        e.preventDefault();
+        
+        console.log('sho')
+      }
+      
+    const handleReset = (e) => {
+        e.preventDefault();
+        document.getElementById('cvForm').reset();
+        setInfo({education: [],
+            experience: [],
+        })
+        setEducationSections([{}]); // Reset education sections
+        setExperienceSections([{}]); // Reset experience sections
+    }
+
     function handleInputChange(e) {
         const { name, value } = e.target;
-        console.log( name, value );
+
         if (name.startsWith("edu")) {
             const sectionIndex = parseInt(name.match(/\d+/)[0]); // Extract index from input name
             const sectionName = name.replace(/\d+/, ''); // Extract input name without index
@@ -54,7 +69,7 @@ export default function Form() {
     
 
     return (
-        <form className='cv-form container'>
+        <form id='cvForm' className='cv-form container' onReset={handleReset} onSubmit={handleSubmit}>
             <section className='personal'>
                 <h2>Personal Info</h2>
                 <div className="form-row">
@@ -93,7 +108,7 @@ export default function Form() {
             </section>
 
             {educationSections.map((section, index) => (
-                <EducationSection key={index} index={index} handleInputChange={handleInputChange} />
+                <EducationSection key={index} info={info} index={index} handleInputChange={handleInputChange} />
             ))}
              <div className="control-panel">
                 <button className='btn btn--add' type='button' 
@@ -102,7 +117,7 @@ export default function Form() {
             </div>
             
             {experienceSections.map((section, index) => (
-                <ExperienceSection key={index} index={index} handleInputChange={handleInputChange} />
+                <ExperienceSection key={index} index={index} info={info} handleInputChange={handleInputChange} />
             ))}
             
             <div className="control-panel">
@@ -113,7 +128,8 @@ export default function Form() {
             <section className='skills'>
                 <h2>Skills</h2>
                 <div className="form-row">
-                    <textarea name="skills" id="skills" cols="30" rows="5" placeholder='ex: Html, Javascript, CSS...'></textarea>
+                    <textarea name="skills" id="skills" cols="30" rows="5" placeholder='ex: Html, Javascript, CSS...'
+                    onChange={handleInputChange} value={info.skills || ''}></textarea>
                 </div>
             </section>
             <div className="control-panel submit-reset">
@@ -125,59 +141,90 @@ export default function Form() {
 }
 
 
-const EducationSection = ({ index, handleInputChange }) => {
+const EducationSection = ({ index, handleInputChange, info }) => {
+    // console.log(info)
+    const educationInfo = info.education[index] || {}; // Get education info for the specific index
+    const { 'edu-study' : study, 'edu-school' : school, 
+    'edu-location' : location,  'edu-grad-year' : gradYear } = educationInfo; // Destructure education info
+    console.log(school)
+    console.log(educationInfo)
     return (
         <section className='education' key={index}>
             <h2>Education</h2>
             <div className="form-row">
-                <label htmlFor={`study${index}`}>Course/Degree/Class</label><br />
-                <input type="text" name={`edu-study${index}`} id={`study${index}`} onChange={handleInputChange} />
+                <label htmlFor={`edu-study${index}`}>Course/Degree/Class</label><br />
+                <input type="text" name={`edu-study${index}`} id={`edu-study${index}`} 
+                onChange={handleInputChange} 
+                value={study || ''}
+                />
             </div>
             <div className="form-row">
-                <label htmlFor={`school${index}`}>School/University</label><br />
-                <input type="text" name={`edu-school${index}`} id={`school${index}`} onChange={handleInputChange} />
+                <label htmlFor={`edu-school${index}`}>School/University</label><br />
+                <input type="text" name={`edu-school${index}`} id={`edu-school${index}`} 
+                onChange={handleInputChange} 
+                value={school || ''}
+                />
             </div>
             <div className="form-row">
-                <label htmlFor={`location${index}`}>Location</label><br />
-                <input type="text" name={`edu-location${index}`} id={`location${index}`} placeholder='ex: Miami, Florida' onChange={handleInputChange} />
+                <label htmlFor={`edu-location${index}`}>Location</label><br />
+                <input type="text" name={`edu-location${index}`} id={`edu-location${index}`} placeholder='ex: Miami, Florida' 
+                onChange={handleInputChange} 
+                value={location || ''}
+                />
             </div>
             <div className="form-row">
-                <label htmlFor={`grad-year${index}`}>Year of graduation</label><br />
-                <input type="text" name={`edu-grad-year${index}`} id={`grad-year${index}`} onChange={handleInputChange} />
+                <label htmlFor={`edu-grad-year${index}`}>Year of graduation</label><br />
+                <input type="text" name={`edu-grad-year${index}`} id={`edu-grad-year${index}`} 
+                onChange={handleInputChange} 
+                value={gradYear || ''}
+               />
             </div>
             
         </section>
     );
 };
 
-const ExperienceSection = ( {index, handleInputChange} ) => {
+const ExperienceSection = ( {index, handleInputChange, info} ) => {
+    const experienceInfo = info.experience[index] || {};
+    const { 'exp-company' : company,
+            'exp-job-title' : jobTitle,
+            'exp-job-resp' : jobResp,
+            'exp-job-start' : jobStart,
+            'exp-job-end' : jobEnd } = experienceInfo;
+    console.log(experienceInfo)
+
     return (
         <section className='experience'>
                 <h2>Work History</h2>
                 <div className="form-row">
                     <label htmlFor={`company${index}`}>Company name</label><br />
                     <input type="text" name={`exp-company${index}`} id={`company${index}`}
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                    value={company || ''} />
                 </div>
                 <div className="form-row">
                     <label htmlFor={`job-title${index}`}>Job title</label><br />
                     <input type="text" name={`exp-job-title${index}`} id={`job-title${index}`} 
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange} 
+                    value={jobTitle || ''}/>
                 </div>
                 <div className="form-row">
                     <label htmlFor={`job-resp${index}`}>Main responsibilities</label><br />
                     <textarea  name={`exp-job-resp${index}`} id={`job-resp${index}`} cols="30" rows="5" 
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange} 
+                    value={jobResp || ''}/>
                 </div>
                 <div className="form-row">
                     <label htmlFor={`job-start${index}`}>From</label><br />
                     <input type="text" name={`exp-job-start${index}`} id={`job-start${index}`} 
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange} 
+                    value={jobStart || ''}/>
                 </div>
                 <div className="form-row">
                     <label htmlFor={`job-end${index}`}>To</label><br />
                     <input type="text" name={`exp-job-end${index}`} id={`job-end${index}`} 
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                    value={jobEnd || ''} />
                 </div>
             </section>
     )
