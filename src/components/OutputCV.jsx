@@ -16,16 +16,19 @@ export default function OutputCV({info}) {
                         <div className="cv-personal">
                             <h4>Personal Info</h4>
                             <div>
-                                <label htmlFor="cv-email">Email</label><br/>
-                                <input type="text" id="cv-email" name ="cv-email" readOnly  value={info.email}/>
+                                <span className='label'>Email</span><br/>
+                                <span>{info.email}</span>
+                                {/* <input type="text" id="cv-email" name ="cv-email" readOnly  value={info.email}/> */}
                             </div>
                             <div>
-                                <label htmlFor="cv-phone">Phone</label><br/>
-                                <input type="text" id="cv-phone" name ="cv-phone" readOnly value={info.phone}/>
+                                <span className='label'>Phone</span><br/>
+                                <span>{info.phone}</span>
+                                {/* <input type="text" id="cv-phone" name ="cv-phone" readOnly value={info.phone}/> */}
                             </div>
                             <div>
-                                <label htmlFor="cv-dob">Date of birth</label><br/>
-                                <input type="text" id="cv-dob" name ="cv-dob" readOnly value={info.dob}/>
+                                <span className='label'>Date of birth</span><br/>
+                                <span>{info.dob}</span>
+                                {/* <input type="text" id="cv-dob" name ="cv-dob" readOnly value={info.dob}/> */}
                             </div>
                         </div>
                         <div className="cv-skills">
