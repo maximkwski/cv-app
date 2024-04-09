@@ -6,8 +6,7 @@ export default function OutputCV({info}) {
 
     return (
         <>
-        <div id='output-cv'>
-            <div className="output-content container">
+            <div className="output__content container" id='output-pdf'>
                 <header>
                     <h1>{info.fullName}</h1>
                     <h3>{info.title}</h3>
@@ -75,8 +74,8 @@ export default function OutputCV({info}) {
                     </div>
                 </main>
             </div>
-            <PdfGenerator info={info}/>
-        </div>
+        {/* <PdfGenerator info={info}/> */}
+
         </>
     )
 }

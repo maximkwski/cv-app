@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Form from './components/Form'
 import OutputCV from './components/OutputCV'
+import PdfGenerator from './components/PdfGenerator'
 
 export default function App() {
   const [info, setInfo] = useState(() => {
@@ -31,7 +32,10 @@ export default function App() {
       <Form info={info} 
       setInfo={setInfo} setEducationSections={setEducationSections} setExperienceSections={setExperienceSections}
       onInfoChange={handleInfoChange} educationSections={educationSections} experienceSections={experienceSections}/>
-      <OutputCV info={info}/>
+      <div className='output'>
+        <OutputCV info={info}/>
+        <PdfGenerator info={info}/>
+      </div>
     </>
   )
 }

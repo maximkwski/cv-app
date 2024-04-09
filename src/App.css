@@ -21,7 +21,7 @@
     margin: 0 1em 1em;
   }
 
-  #output-cv {
+  .output {
     width: 60%;
   }
 }
@@ -33,7 +33,7 @@
 
   }
 
-  #output-cv {
+  .output {
     width: 70%;
   }
 }

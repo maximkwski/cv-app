@@ -1,7 +1,6 @@
-#output-cv {
-    /* font-size: 0.5em; */
+.output {
     background-color: #c7b198;
-    padding-top: 0.5em;
+    padding-top: 1em;
 }
 
 .left-side,
@@ -10,28 +9,28 @@
 
 }
 
-.output-content {
+.output__content {
     margin: 1em auto;
     background-color: white;
     box-shadow: 8px 8px 10px rgb(132, 131, 131);
     padding: 1em;
 }
 
-.output-content header {
+.output__content header {
     margin-bottom: 1em;
 }
 
-.output-content h1,
-.output-content h3,
-.output-content h4 {
+.output__content h1,
+.output__content h3,
+.output__content h4 {
     color: rgb(28, 105, 131);
 }
 
-.output-content h3 {
+.output__content h3 {
     font-weight: 300;
 }
 
-.output-content h4 {
+.output__content h4 {
     border-bottom: 1px solid rgb(28, 105, 131);
 }
 
@@ -95,4 +94,22 @@
     overflow-x: auto;
     /* Enable horizontal scrolling when content overflows */
     white-space: nowrap;
+}
+
+
+.pdf {
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.btn--save {
+    width: auto;
+    background-color: #596e79;
+    color: #f0ece2;
+}
+
+.btn:active,
+.btn:hover {
+    opacity: 0.8;
+    transform: scale(0.95);
 }
