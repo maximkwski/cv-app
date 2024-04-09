@@ -1,13 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Form from './components/Form'
 import OutputCV from './components/OutputCV'
 
 export default function App() {
-  const [info, setInfo] = useState({
-    education: [],
-    experience: [],
-  }) //cv profile info
+  const [info, setInfo] = useState(() => {
+    const localValue = localStorage.getItem('info')
+    return localValue ? JSON.parse(localValue) : { education: [], experience: [] };
+
+  });
+
+  useEffect(() => {
+    localStorage.setItem('info', JSON.stringify(info))
+  }, [info])
+
+  // const [info, setInfo] = useState({
+  //   education: [],
+  //   experience: [],
+  // }) 
 
   const [educationSections, setEducationSections] = useState([{}]); //edu section
   const [experienceSections, setExperienceSections] = useState ([{}]); //exp section
