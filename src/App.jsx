@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Form from './Form'
-import OutputCV from './OutputCV'
+import Form from './components/Form'
+import OutputCV from './components/OutputCV'
 
 export default function App() {
   const [info, setInfo] = useState({

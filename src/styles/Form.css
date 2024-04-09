@@ -1,7 +1,5 @@
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 80%;
+.cv-form {
+    margin-bottom: 1em;
 }
 
 form h2 {

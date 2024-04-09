@@ -1,6 +1,13 @@
+#output-cv {
+    /* font-size: 0.5em; */
+    background-color: #c7b198;
+    padding-top: 0.5em;
+}
+
 .left-side,
 .right-side {
     margin-bottom: 1em;
+
 }
 
 .output-content {
@@ -81,4 +88,11 @@
 
 .cv-school-location {
     font-style: italic;
+}
+
+.cv-email {
+    max-width: 100%;
+    overflow-x: auto;
+    /* Enable horizontal scrolling when content overflows */
+    white-space: nowrap;
 }

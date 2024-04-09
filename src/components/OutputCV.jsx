@@ -1,13 +1,13 @@
 import PdfGenerator from './PdfGenerator'
-import './styles/OutputCV.css'
+import '../styles/OutputCV.css'
 
 export default function OutputCV({info}) {
 
 
     return (
         <>
-        <div className="container" id='output-cv'>
-            <div className="output-content">
+        <div id='output-cv'>
+            <div className="output-content container">
                 <header>
                     <h1>{info.fullName}</h1>
                     <h3>{info.title}</h3>
@@ -75,8 +75,8 @@ export default function OutputCV({info}) {
                     </div>
                 </main>
             </div>
+            <PdfGenerator info={info}/>
         </div>
-        <PdfGenerator info={info}/>
         </>
     )
 }
