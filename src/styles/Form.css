@@ -31,11 +31,13 @@ form section {
     outline: none;
     border: none;
     border-radius: 5px;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 0.125em;
 }
 
-.form-row input {}
+.form-row textarea {
+    font-size: 0.8em;
+}
 
 .form-row label {
     text-transform: uppercase;

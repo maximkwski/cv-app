@@ -3,7 +3,7 @@ import '../styles/OutputCV.css'
 
 const PdfGenerator = ({ info }) => {
   const generatePdf = () => {
-    const element = document.getElementById('output-pdf'); // Assuming you have an id on the root element of your OutputCV component
+    const element = document.getElementById('output-pdf'); 
     html2pdf().from(element).save();
   };
 
