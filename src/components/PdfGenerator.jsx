@@ -9,7 +9,6 @@ const PdfGenerator = ({ info }) => {
 
   return (
     <div className='container pdf'>
-      {/* <OutputCV info={info} /> */}
       <button type='button' 
         className='btn btn--save'
       onClick={generatePdf}>Save as PDF</button>

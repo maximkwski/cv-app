@@ -17,18 +17,15 @@ export default function OutputCV({info}) {
                             <h4>Personal Info</h4>
                             <div>
                                 <span className='label'>Email</span><br/>
-                                <span>{info.email}</span>
-                                {/* <input type="text" id="cv-email" name ="cv-email" readOnly  value={info.email}/> */}
+                                <span>{info.email}</span> 
                             </div>
                             <div>
                                 <span className='label'>Phone</span><br/>
                                 <span>{info.phone}</span>
-                                {/* <input type="text" id="cv-phone" name ="cv-phone" readOnly value={info.phone}/> */}
                             </div>
                             <div>
                                 <span className='label'>Date of birth</span><br/>
                                 <span>{info.dob}</span>
-                                {/* <input type="text" id="cv-dob" name ="cv-dob" readOnly value={info.dob}/> */}
                             </div>
                         </div>
                         <div className="cv-skills">
@@ -77,7 +74,6 @@ export default function OutputCV({info}) {
                     </div>
                 </main>
             </div>
-        {/* <PdfGenerator info={info}/> */}
 
         </>
     )
